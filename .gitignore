@@ -66,3 +66,11 @@ vcpkg_installed/
 # test output & cache
 Testing/
 .cache/
+
+# IDE
+.vscode/
+.idea/
+*.xcodeproj
+*.xcworkspace
+xcuserdata/
+.vs/
