@@ -135,5 +135,5 @@ void MasterDataManager::displayExpenseCategories() const{
     }
 
     std::cout << "+----------+-----------------------------------------------------+\n";
-    std::cout << "Total: " << IncomeSources.size() << " expense categories.\n";
+    std::cout << "Total: " << ExpenseCategories.size() << " expense categories.\n";
 }
