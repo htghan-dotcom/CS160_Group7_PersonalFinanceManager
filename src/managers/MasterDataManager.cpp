@@ -10,7 +10,7 @@ bool MasterDataManager::isIncomeSourceIdExists(int id){
     return false;
 }
 
-bool MasterDataManager::isExpenseCategorydExists(int id){
+bool MasterDataManager::isExpenseCategoryExists(int id){
     //Check if the new categoryID is in the database
     for (const auto& expensecategory : ExpenseCategories){
         if (expensecategory.categoryID == id){
@@ -54,5 +54,22 @@ void MasterDataManager::addIncomeSource(){
     }
 
 void MasterDataManager::addExpenseCategory(){
-    
+
+    //Ask the user to enter the new Expense Category ID
+
+    std::cout <<  "\nEnter New Expense Category ID (A Positive Integer): ";
+    int categoryID;
+    while (!std::cin >> categoryID || categoryID < 0){
+        std::cin.clear();
+        std::cin.ignore(10000,'\n');
+        std::cout << "Invalid Value!. Re-enter New Expense Category ID (A Positive Integer): ";
+    }
+
+    //Check if the Expense Category ID exists
+
+    if (isEx(sourceID)) {
+            std::cout << "ID Exists. Please Re-enter!\n";
+            return;
+        }
+
 }

@@ -10,7 +10,7 @@ struct MasterDataManager{
     std::vector<IncomeSource> IncomeSources;
     std::vector<ExpenseCategory> ExpenseCategories;
     bool isIncomeSourceIdExists(int id);
-    bool isExpenseCategorydExists(int id);
+    bool isExpenseCategoryExists(int id);
 
     public:
     void addIncomeSource();
