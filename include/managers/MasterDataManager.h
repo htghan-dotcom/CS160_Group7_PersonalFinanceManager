@@ -2,8 +2,9 @@
 #include <vector>
 #include <string>
 #include <iostream>
-#include "models/ExpenseCategory.hpp"
-#include "models/IncomeSource.hpp"
+#include "models/ExpenseCategory.h"
+#include "models/IncomeSource.h"
+#include <iomanip>
 struct MasterDataManager{
     private: 
 
@@ -15,6 +16,8 @@ struct MasterDataManager{
     public:
     void addIncomeSource();
     void addExpenseCategory();
+    void displayIncomeSources() const;
+    void displayExpenseCategories() const;
 
 
 };
