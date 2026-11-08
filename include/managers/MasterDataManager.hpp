@@ -14,7 +14,7 @@ struct MasterDataManager{
 
     public:
     void addIncomeSource();
-
+    void addExpenseCategory();
 
 
 };

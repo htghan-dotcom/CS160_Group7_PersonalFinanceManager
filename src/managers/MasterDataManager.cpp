@@ -52,3 +52,7 @@ void MasterDataManager::addIncomeSource(){
         std::cout << "Added Income Source Successfully!";
 
     }
+
+void MasterDataManager::addExpenseCategory(){
+    
+}
