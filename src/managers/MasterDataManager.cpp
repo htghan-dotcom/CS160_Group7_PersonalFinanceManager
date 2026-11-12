@@ -131,7 +131,7 @@ void MasterDataManager::displayExpenseCategories() const{
     std::cout << "+----------+-----------------------------------------------------+\n";
 
     for (const auto& item: ExpenseCategories){
-        std::cout << "| "<<std::left << std::setw(8) << item.categoryID << " | " << std::setw(52) << item.categoryName << " |\n";
+        std::cout << "| "<<std::left << std::setw(8) << item.categoryID << " | " << std::setw(51) << item.categoryName << " |\n";
     }
 
     std::cout << "+----------+-----------------------------------------------------+\n";
