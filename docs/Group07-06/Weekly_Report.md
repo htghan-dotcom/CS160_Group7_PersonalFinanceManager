@@ -14,17 +14,19 @@
 
 ## 2. Individual Member Reports
 
-### Huỳnh Trần Gia Hân (`htghan-dotcom`)
-
-* **Assigned Module:** Wallet Management & Data Persistence
-
+#### Huỳnh Trần Gia Hân (`htghan-dotcom`)
+* **Assigned Module:** Wallet Management & Data Persistence.
 * **Tasks Planned for the Week:**
-
+    * Set up the CMake build configuration and build documentation for the project.
+    * Implement the `Wallet` data structure and core CRUD operations using manual dynamic memory allocation.
 * **Work Completed / Progress:**
-
-* **Obstacles / Blockers:**
-
+    * Configured `CMakeLists.txt` (enforcing C++17 standard, header/source auto-discovery, and compiler warning flags) and updated the build instructions in `README.md`.
+    * Defined the `Wallet` struct and implemented dynamic array management functions (`addWallet`, `editWallet`, `deleteWallet`, `freeWallets`) without using STL containers.
+    * Implemented lookup and balance helper utilities (`findWalletIndexById`, `getWalletById`, `updateWalletBalance`, `getTotalBalance`) to support transaction processing and dashboard summaries.
+* **Obstacles / Blockers:** None.
 * **Next Week Plan:**
+    * Implement binary file I/O (`saveWalletsToBinary` and `loadWalletsFromBinary`) for session persistence.
+    * Integrate `Wallet` operations with the Transaction module and main CLI Dashboard.
 
 ---
 
