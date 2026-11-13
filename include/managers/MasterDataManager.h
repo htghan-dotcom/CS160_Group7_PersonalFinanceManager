@@ -6,18 +6,42 @@
 #include "models/IncomeSource.h"
 #include <iomanip>
 struct MasterDataManager{
-    private: 
+    IncomeSource* incomeSources;
+    int incomeCount;
+    int incomeCapacity;
 
-    std::vector<IncomeSource> IncomeSources;
-    std::vector<ExpenseCategory> ExpenseCategories;
+    ExpenseCategory* expenseCategories;
+    int expenseCount;
+    int expenseCapacity;
+
+    MasterDataManager() {
+        incomeCapacity = 10;
+        incomeCount = 0;
+        incomeSources = new IncomeSource[incomeCapacity];
+
+        expenseCapacity = 10;
+        expenseCount = 0;
+        expenseCategories = new ExpenseCategory[expenseCapacity];
+    }
+
+    ~MasterDataManager() {
+        delete[] incomeSources;
+        delete[] expenseCategories;
+    }
+    private: 
     bool isIncomeSourceIdExists(int id);
     bool isExpenseCategoryExists(int id);
-
+    void resizeIncomeSources();
+    void resizeExpenseCategories();
     public:
     void addIncomeSource();
     void addExpenseCategory();
     void displayIncomeSources() const;
     void displayExpenseCategories() const;
+    void deleteIncomeSource();
+    void deleteExpenseCategory();
+    void updateIncomeSource();
+    void updateExpenseCategory();
 
 
 };
