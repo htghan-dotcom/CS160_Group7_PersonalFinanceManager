@@ -28,12 +28,11 @@ struct MasterDataManager{
         delete[] incomeSources;
         delete[] expenseCategories;
     }
-    private: 
+    public:
     bool isIncomeSourceIdExists(int id);
     bool isExpenseCategoryExists(int id);
     void resizeIncomeSources();
     void resizeExpenseCategories();
-    public:
     void addIncomeSource();
     void addExpenseCategory();
     void displayIncomeSources() const;
