@@ -1,5 +1,5 @@
 #include "Utils.h"
-
+#include <cstdlib>
 bool dateStringValid(const std::string &dateStr) {
     if (dateStr.length() != 10 || dateStr[2] != '/' || dateStr[5] != '/') {
         return false;
@@ -71,7 +71,7 @@ int cmpDate(const date &d1, const date &d2){
 }
 
 namespace ConsoleUtils {
-    inline void clearScreen() {
+    void clearScreen() {
         #ifdef _WIN32
             std::system("cls");
         #else
@@ -79,13 +79,13 @@ namespace ConsoleUtils {
         #endif
     }
 
-    inline void pauseScreen() {
+    void pauseScreen() {
         std::cout << "\nPress Enter to return to Main Dashboard...";
         std::cin.ignore(10000, '\n');
         std::cin.get();
     }
 
-    inline int getValidChoice() {
+    int getValidChoice() {
         int choice;
         while (!(std::cin >> choice)) {
             std::cin.clear();
