@@ -15,3 +15,8 @@ bool dateValid(const date &d);
 
 int cmpDate(const date &d1, const date &d2);
 
+namespace ConsoleUtils{
+    void clearScreen();
+    void pauseScreen();
+    int getValidChoice();
+}
