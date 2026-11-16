@@ -1,4 +1,4 @@
-#include "DashboardView.h"
+#include "ui/DashboardView.h"
 #include "Wallet.h" 
 #include <iostream>
 #include <iomanip>
