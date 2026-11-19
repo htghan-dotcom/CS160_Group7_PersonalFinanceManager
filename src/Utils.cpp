@@ -1,23 +1,36 @@
 #include "Utils.h"
 #include <cstdlib>
 bool dateStringValid(const std::string &dateStr) {
-    if (dateStr.length() != 10 || dateStr[2] != '/' || dateStr[5] != '/') {
+    if (dateStr.size() != 10 || dateStr[2] != '/' || dateStr[5] != '/') {
         return false;
     }
-    
+    for (int i = 0; i < 10; i++) {
+        if (i == 2 || i == 5) {
+            continue;
+        }
+        if (dateStr[i] < '0' || dateStr[i] > '9') {
+            return false;
+        }
+    }
     return true;
 }
-void parsingDate(const std::string &dateStr, date &d){
-    if (!dateStringValid(dateStr)) {
-        std::cout << "Invalid date format. Please use DD/MM/YYYY." << std::endl;
-        return;
-    }
-    
-    d.day = std::stoi(dateStr.substr(0, 2));
-    d.month = std::stoi(dateStr.substr(3, 2));
-    d.year = std::stoi(dateStr.substr(6, 4));
-}
 
+bool parsingDate(const std::string &dateStr, date &d) {
+    if (!dateStringValid(dateStr)) {
+        return false;
+    }
+
+    date parsed{};
+    parsed.day = std::stoi(dateStr.substr(0, 2));
+    parsed.month = std::stoi(dateStr.substr(3, 2));
+    parsed.year = std::stoi(dateStr.substr(6, 4));
+    if (!dateValid(parsed)) {
+        return false;
+    }
+
+    d = parsed;
+    return true;
+}
 bool leapYearValid(int year){
     if (year % 4 == 0) {
         if (year % 100 == 0) {

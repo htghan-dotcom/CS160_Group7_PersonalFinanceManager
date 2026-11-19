@@ -2,6 +2,7 @@
 #include "ui/Menu.h"
 #include "Wallet.h"
 #include "Transaction.h"
+#include "Statistics.h"
 
 int main() {
     MasterDataManager masterManager;

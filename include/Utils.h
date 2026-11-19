@@ -7,7 +7,11 @@ struct date {
     int day, month, year;
 };
 
-void parsingDate(const std::string &dateStr, date &d);
+// Check DD/MM/YYYY format and digits only.
+bool dateStringValid(const std::string &dateStr);
+
+// Validate and parse a date; leave d unchanged on failure.
+bool parsingDate(const std::string &dateStr, date &d);
 
 bool leapYearValid(int year);
 
