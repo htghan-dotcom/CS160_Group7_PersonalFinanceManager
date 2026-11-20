@@ -10,11 +10,6 @@ struct date {
 bool dateStringValid(const char *dateStr);
 
 void parsingDate(const char *dateStr, date &d);
-// Check DD/MM/YYYY format and digits only.
-bool dateStringValid(const std::string &dateStr);
-
-// Validate and parse a date; leave d unchanged on failure.
-bool parsingDate(const std::string &dateStr, date &d);
 
 bool leapYearValid(int year);
 
