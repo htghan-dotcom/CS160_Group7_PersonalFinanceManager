@@ -1,39 +1,41 @@
 #include "Utils.h"
 
-bool dateStringValid(const std::string &dateStr) {
-    if (dateStr.length() != 10 || dateStr[2] != '/' || dateStr[5] != '/') {
+bool dateStringValid(const char *dateStr) {
+    if (dateStr == nullptr || strlen(dateStr) != 10 || dateStr[2] != '/' || dateStr[5] != '/') {
         return false;
     }
-    
+    for (int i = 0; i < 10; i++) {
+        if (i == 2 || i == 5) {
+            continue;
+        }
+        if (dateStr[i] < '0' || dateStr[i] > '9') {
+            return false;
+        }
+    }
     return true;
 }
-void parsingDate(const std::string &dateStr, date &d){
+
+void parsingDate(const char *dateStr, date &d) {
     if (!dateStringValid(dateStr)) {
         std::cout << "Invalid date format. Please use DD/MM/YYYY." << std::endl;
         return;
     }
-    
-    d.day = std::stoi(dateStr.substr(0, 2));
-    d.month = std::stoi(dateStr.substr(3, 2));
-    d.year = std::stoi(dateStr.substr(6, 4));
+    d.day = (dateStr[0] - '0') * 10 + (dateStr[1] - '0');
+    d.month = (dateStr[3] - '0') * 10 + (dateStr[4] - '0');
+    d.year = (dateStr[6] - '0') * 1000 + (dateStr[7] - '0') * 100 + (dateStr[8] - '0') * 10 + (dateStr[9] - '0');
 }
 
-bool leapYearValid(int year){
+bool leapYearValid(int year) {
     if (year % 4 == 0) {
         if (year % 100 == 0) {
-            if (year % 400 == 0) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return true;
+            return year % 400 == 0;
         }
+        return true;
     }
     return false;
 }
 
-bool dateValid(const date &d){
+bool dateValid(const date &d) {
     if (d.year < 0) {
         return false;
     }
@@ -46,9 +48,8 @@ bool dateValid(const date &d){
     if (d.month == 2) {
         if (leapYearValid(d.year)) {
             return d.day <= 29;
-        } else {
-            return d.day <= 28;
         }
+        return d.day <= 28;
     }
     if (d.month == 4 || d.month == 6 || d.month == 9 || d.month == 11) {
         return d.day <= 30;
@@ -56,16 +57,15 @@ bool dateValid(const date &d){
     return true;
 }
 
-int cmpDate(const date &d1, const date &d2){
-    if (d1.year == d2.year && d1.month == d2.month && d1.day == d2.day) {
-        return 0;
+int cmpDate(const date &d1, const date &d2) {
+    if (d1.year != d2.year) {
+        return d1.year < d2.year ? -1 : 1;
     }
-    
-    if (d1.year < d2.year || 
-        (d1.year == d2.year && d1.month < d2.month) || 
-        (d1.year == d2.year && d1.month == d2.month && d1.day < d2.day)) {
-        return -1;
+    if (d1.month != d2.month) {
+        return d1.month < d2.month ? -1 : 1;
     }
-    
-    return 1;
+    if (d1.day != d2.day) {
+        return d1.day < d2.day ? -1 : 1;
+    }
+    return 0;
 }
