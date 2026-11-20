@@ -12,6 +12,14 @@ bool dateStringValid(const char *dateStr) {
             return false;
         }
     }
+    for (int i = 0; i < 10; i++) {
+        if (i == 2 || i == 5) {
+            continue;
+        }
+        if (dateStr[i] < '0' || dateStr[i] > '9') {
+            return false;
+        }
+    }
     return true;
 }
 
