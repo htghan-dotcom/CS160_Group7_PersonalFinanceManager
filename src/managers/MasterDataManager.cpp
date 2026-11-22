@@ -52,7 +52,7 @@ void MasterDataManager::addIncomeSource(){
 
         std::cout << "\nEnter New Income Source ID (A Positive Integer): ";
         int sourceID;
-        while (!std::cin>>sourceID || sourceID < 0){
+        while (!(std::cin>>sourceID) || sourceID < 0){
             std::cin.clear();
             std::cin.ignore(10000,'\n');
             std::cout << "Invalid Value!. Re-enter New Income Source ID (A Positive Integer): ";
@@ -88,7 +88,7 @@ void MasterDataManager::addExpenseCategory(){
 
     std::cout <<  "\nEnter New Expense Category ID (A Positive Integer): ";
     int categoryID;
-    while (!std::cin >> categoryID || categoryID < 0){
+    while (!(std::cin >> categoryID) || categoryID < 0){
         std::cin.clear();
         std::cin.ignore(10000,'\n');
         std::cout << "Invalid Value!. Re-enter New Expense Category ID (A Positive Integer): ";
@@ -114,6 +114,7 @@ void MasterDataManager::addExpenseCategory(){
         resizeExpenseCategories();
     }
     expenseCategories[expenseCount] = ExpenseCategory(categoryID, name);
+    expenseCount++;
     //Notify the user that the new expense category is added successfully
 
     std::cout << "Added Expense Category Successfully!\n";
