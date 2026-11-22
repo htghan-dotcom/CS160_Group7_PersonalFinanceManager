@@ -13,7 +13,8 @@ long long totalIncomeRange(
     }
 
     date start{}, end{};
-    if (!parsingDate(dateStart, start) || !parsingDate(dateEnd, end)) {
+    if (!parsingDate(dateStart, start) ||
+        !parsingDate(dateEnd, end)) {
         std::cout << "Invalid start or end date.\n";
         return -1;
     }

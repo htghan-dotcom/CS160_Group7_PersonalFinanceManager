@@ -1,5 +1,6 @@
 #pragma once
 #include "managers/MasterDataManager.h"
+#include "ConsoleUtils.h"
 #include "Wallet.h"
 #include "Transaction.h"
 

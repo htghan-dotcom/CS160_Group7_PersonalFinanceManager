@@ -1,16 +1,8 @@
 #include "Utils.h"
 
-bool dateStringValid(const char *dateStr) {
-    if (dateStr == nullptr || strlen(dateStr) != 10 || dateStr[2] != '/' || dateStr[5] != '/') {
+bool dateStringValid(const std::string &dateStr) {
+    if (dateStr.length() != 10 || dateStr[2] != '/' || dateStr[5] != '/') {
         return false;
-    }
-    for (int i = 0; i < 10; i++) {
-        if (i == 2 || i == 5) {
-            continue;
-        }
-        if (dateStr[i] < '0' || dateStr[i] > '9') {
-            return false;
-        }
     }
     for (int i = 0; i < 10; i++) {
         if (i == 2 || i == 5) {
@@ -23,14 +15,15 @@ bool dateStringValid(const char *dateStr) {
     return true;
 }
 
-void parsingDate(const char *dateStr, date &d) {
+bool parsingDate(const std::string &dateStr, date &d) {
     if (!dateStringValid(dateStr)) {
         std::cout << "Invalid date format. Please use DD/MM/YYYY." << std::endl;
-        return;
+        return false;
     }
     d.day = (dateStr[0] - '0') * 10 + (dateStr[1] - '0');
     d.month = (dateStr[3] - '0') * 10 + (dateStr[4] - '0');
     d.year = (dateStr[6] - '0') * 1000 + (dateStr[7] - '0') * 100 + (dateStr[8] - '0') * 10 + (dateStr[9] - '0');
+    return true;
 }
 
 bool leapYearValid(int year) {

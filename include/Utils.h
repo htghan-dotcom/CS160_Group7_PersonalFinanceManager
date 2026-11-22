@@ -1,15 +1,14 @@
 #pragma once
 
 #include <iostream>
-#include <cstring>
+#include <string>
 
 struct date {
     int day, month, year;
 };
+bool dateStringValid(const std::string &dateStr);
 
-bool dateStringValid(const char *dateStr);
-
-void parsingDate(const char *dateStr, date &d);
+bool parsingDate(const std::string &dateStr, date &d);
 
 bool leapYearValid(int year);
 

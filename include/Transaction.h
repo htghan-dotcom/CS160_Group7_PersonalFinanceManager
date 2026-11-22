@@ -1,24 +1,24 @@
 #pragma once
 
 #include <iostream>
-#include <cstring>
+#include <string>
 
 struct IncomeTransaction {
     int id = 0;
-    char *date = nullptr;
+    std::string date;
     int sourceId = 0;
     long long amount = 0;
     int walletId = 0;
-    char *description = nullptr;
+    std::string description;
 };
 
 int nextIncomeId(const IncomeTransaction* list, int count);
 
 bool recordIncome(IncomeTransaction*& list, int& count, int& capacity,
-                  const char* date, int sourceId,
+                  const std::string& date, int sourceId,
                   long long amount, int walletId,
-                  const char* description);
+                  const std::string& description);
 
-char* incomeToString(const IncomeTransaction& t);
+std::string incomeToString(const IncomeTransaction& t);
 
 void freeIncomeList(IncomeTransaction*& list, int& count, int& capacity);

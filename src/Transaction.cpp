@@ -1,14 +1,4 @@
 #include "Transaction.h"
-#include <cstdio>
-
-static char* copyString(const char* src) {
-    if (src == nullptr) {
-        src = "";
-    }
-    char* dst = new char[strlen(src) + 1];
-    strcpy(dst, src);
-    return dst;
-}
 
 int nextIncomeId(const IncomeTransaction* list, int count) {
     if (list == nullptr || count <= 0) {
@@ -25,11 +15,11 @@ int nextIncomeId(const IncomeTransaction* list, int count) {
 }
 
 bool recordIncome(IncomeTransaction*& list, int& count, int& capacity,
-                  const char* date, int sourceId,
+                  const std::string& date, int sourceId,
                   long long amount, int walletId,
-                  const char* description) {
+                  const std::string& description) {
 
-    if (amount <= 0 || date == nullptr || date[0] == '\0' || sourceId <= 0 || walletId <= 0) {
+    if (amount <= 0 || date.empty() || sourceId <= 0 || walletId <= 0) {
         return false;
     }
 
@@ -47,32 +37,26 @@ bool recordIncome(IncomeTransaction*& list, int& count, int& capacity,
     }
 
     list[count].id = nextIncomeId(list, count);
-    list[count].date = copyString(date);
+    list[count].date = date;
     list[count].sourceId = sourceId;
     list[count].amount = amount;
     list[count].walletId = walletId;
-    list[count].description = copyString(description);
+    list[count].description = description;
     ++count;
 
     return true;
 }
 
-char* incomeToString(const IncomeTransaction& t) {
-    const char* fmt = "[ID: %d] Date: %s | SourceID: %d | WalletID: %d | Amount: +%lld | Note: %s";
-    const char* dateStr = (t.date != nullptr) ? t.date : "";
-    const char* noteStr = (t.description != nullptr) ? t.description : "";
-
-    int len = snprintf(nullptr, 0, fmt, t.id, dateStr, t.sourceId, t.walletId, t.amount, noteStr);
-    char* result = new char[len + 1];
-    snprintf(result, len + 1, fmt, t.id, dateStr, t.sourceId, t.walletId, t.amount, noteStr);
-    return result;
+std::string incomeToString(const IncomeTransaction& t) {
+    return "[ID: " + std::to_string(t.id) +
+           "] Date: " + t.date +
+           " | SourceID: " + std::to_string(t.sourceId) +
+           " | WalletID: " + std::to_string(t.walletId) +
+           " | Amount: +" + std::to_string(t.amount) +
+           " | Note: " + t.description;
 }
 
 void freeIncomeList(IncomeTransaction*& list, int& count, int& capacity) {
-    for (int i = 0; i < count; ++i) {
-        delete[] list[i].date;
-        delete[] list[i].description;
-    }
     delete[] list;
     list = nullptr;
     count = 0;
