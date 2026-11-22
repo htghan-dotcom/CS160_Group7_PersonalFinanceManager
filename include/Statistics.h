@@ -6,31 +6,63 @@
 #include "models/ExpenseCategory.h"
 
 long long totalIncomeRange(
-    const IncomeTransaction* incomeList, 
+    const IncomeTransaction* incomeList,
     int incomeCount,
-    const std::string& dateStart, 
+    const std::string& dateStart,
     const std::string& dateEnd,
-    int walletId = -1, 
+    int walletId = -1,
     int sourceId = -1
 );
 
 void annualIncomeBreakdown(
-    const IncomeTransaction* incomeList, 
+    const IncomeTransaction* incomeList,
     int incomeCount,
-    const IncomeSource* incomeSources, 
+    const IncomeSource* incomeSources,
     int sourceCount,
     int year
 );
-// Income-only overview for one year. Call once per selected year.
+long long totalExpenseRange(
+    const ExpenseTransaction* expenseList,
+    int expenseCount,
+    const std::string& dateStart,
+    const std::string& dateEnd,
+    int walletId = -1,
+    int categoryId = -1
+);
+
+void annualExpenseBreakdown(
+    const ExpenseTransaction* expenseList,
+    int expenseCount,
+    const ExpenseCategory* expenseCategories,
+    int categoryCount,
+    int year
+);
+
+// Income, expense and their difference within an inclusive date range.
+void timeOverview(
+    const IncomeTransaction* incomeList,
+    int incomeCount,
+    const ExpenseTransaction* expenseList,
+    int expenseCount,
+    const std::string& dateStart,
+    const std::string& dateEnd,
+    int walletId = -1
+);
+
+// Full overview for one year; call once per selected year.
 void annualOverview(
     const IncomeTransaction* incomeList,
     int incomeCount,
+    const ExpenseTransaction* expenseList,
+    int expenseCount,
     int year
 );
-// Income-only overview for a selected wallet and inclusive date range.
-void walletIncomeOverview(
+
+void walletOverview(
     const IncomeTransaction* incomeList,
     int incomeCount,
+    const ExpenseTransaction* expenseList,
+    int expenseCount,
     const Wallet& wallet,
     const std::string& dateStart,
     const std::string& dateEnd

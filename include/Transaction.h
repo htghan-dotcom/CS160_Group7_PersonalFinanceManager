@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+#include "Wallet.h"
 
 struct IncomeTransaction {
     int id = 0;
@@ -24,9 +25,10 @@ struct ExpenseTransaction {
 int nextIncomeId(const IncomeTransaction* list, int count);
 
 bool recordIncome(IncomeTransaction*& list, int& count, int& capacity,
-                  const std::string& date, int sourceId,
+                  const std::string& dateText, int sourceId,
                   long long amount, int walletId,
-                  const std::string& description);
+                  const std::string& description,
+                  Wallet* wallets, int walletCount);
 
 std::string incomeToString(const IncomeTransaction& t);
 
@@ -35,9 +37,10 @@ void freeIncomeList(IncomeTransaction*& list, int& count, int& capacity);
 int nextExpenseId(const ExpenseTransaction* list, int count);
 
 bool recordExpense(ExpenseTransaction*& list, int& count, int& capacity,
-                   const std::string& date, int categoryId,
+                   const std::string& dateText, int categoryId,
                    long long amount, int walletId,
-                   const std::string& description);
+                   const std::string& description,
+                  Wallet* wallets, int walletCount);
 
 std::string expenseToString(const ExpenseTransaction& t);
 

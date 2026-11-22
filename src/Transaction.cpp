@@ -15,11 +15,12 @@ int nextIncomeId(const IncomeTransaction* list, int count) {
 }
 
 bool recordIncome(IncomeTransaction*& list, int& count, int& capacity,
-                  const std::string& date, int sourceId,
+                  const std::string& dateText, int sourceId,
                   long long amount, int walletId,
-                  const std::string& description) {
+                  const std::string& description,
+                  Wallet* wallets, int walletCount) {
 
-    if (amount <= 0 || date.empty() || sourceId <= 0 || walletId <= 0) {
+    if (amount <= 0 || dateText.empty() || sourceId <= 0 || walletId <= 0) {
         return false;
     }
 
@@ -37,11 +38,14 @@ bool recordIncome(IncomeTransaction*& list, int& count, int& capacity,
     }
 
     list[count].id = nextIncomeId(list, count);
-    list[count].date = date;
+    list[count].date = dateText;
     list[count].sourceId = sourceId;
     list[count].amount = amount;
     list[count].walletId = walletId;
     list[count].description = description;
+    if(!updateWalletBalance(wallets, walletCount, walletId, amount)){
+        return false;
+    }
     ++count;
 
     return true;
@@ -78,11 +82,12 @@ int nextExpenseId(const ExpenseTransaction* list, int count) {
 }
 
 bool recordExpense(ExpenseTransaction*& list, int& count, int& capacity,
-                   const std::string& date, int categoryId,
+                   const std::string& dateText, int categoryId,
                    long long amount, int walletId,
-                   const std::string& description) {
+                   const std::string& description,
+                  Wallet* wallets, int walletCount) {
 
-    if (amount <= 0 || date.empty() || categoryId <= 0 || walletId <= 0) {
+    if (amount <= 0 || dateText.empty() || categoryId <= 0 || walletId <= 0) {
         return false;
     }
 
@@ -100,11 +105,14 @@ bool recordExpense(ExpenseTransaction*& list, int& count, int& capacity,
     }
 
     list[count].id = nextExpenseId(list, count);
-    list[count].date = date;
+    list[count].date = dateText;
     list[count].categoryId = categoryId;
     list[count].amount = amount;
     list[count].walletId = walletId;
     list[count].description = description;
+    if(!updateWalletBalance(wallets, walletCount, walletId, -amount)){
+        return false;
+    }
     ++count;
 
     return true;
