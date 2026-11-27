@@ -1,75 +1,80 @@
-# Weekly Report - Practical Week 07
+# Git Commit Log Total — Practical Week 07
 
-* **Project:** Personal Finance Manager
-* **Group ID:** Group07
-* **Report Period:** 2026-11-14 to 2026-11-20
+Personal Finance Manager · Group07 | 2026-11-14 to 2026-11-20
 
----
+Repository: https://github.com/htghan-dotcom/CS160_Group7_PersonalFinanceManager
 
-## 1. Summary of Weekly Activities
+## Contribution summary
 
-This sprint focused on the CLI layer and transaction logic. The menu structure of the
-application was established, console helper functions were moved into the shared Utils
-module, and the Transaction and Utils modules were updated and fixed. The statistics
-feature branch was merged into `main` via Pull Request #4. Team members also spent time
-synchronizing their local branches with `main` to keep the codebase consistent.
+9 commits this week; 38 cumulative commits. Counts use commits reachable from main, by author date (UTC+7), including merges. Line totals exclude merge diffs and binary files. Share is the percentage of cumulative commits.
 
----
+| Member / student ID | GitHub | Role | Week | Total | Added | Deleted | Share |
+|---|---|---|---:|---:|---:|---:|---:|
+| Huỳnh Trần Gia Hân (25125042) | htghan-dotcom | Wallet and persistence | 0 | 14 | 879 | 12 | 36.8% |
+| Nguyễn Bá Đạt (26125014) | DatJust | Transactions and utilities | 3 | 5 | 264 | 76 | 13.2% |
+| Nguyễn Đức Thành Đạt (26125015) | hiepsimauhong | Recurring transactions and statistics | 2 | 2 | 191 | 11 | 5.3% |
+| Nguyễn Gia Khánh (26125036) | gkhanhhh-debug | Master data and CLI | 4 | 17 | 1091 | 141 | 44.7% |
+| **Team total** | | | 9 | 38 | 2425 | 240 | 100% |
 
-## 2. Individual Member Reports
+## Total project commit log
 
-### Huỳnh Trần Gia Hân (`htghan-dotcom`)
-* **Assigned Module:** Wallet Management & Data Persistence
-* **Tasks Planned for the Week:**
-  * Implement binary file I/O for wallet persistence.
-  * Review incoming pull requests from team members.
-* **Work Completed / Progress:**
-  * Reviewed teammates' pull requests, including the statistics feature branch.
-  * Designed the binary file layout for saving and loading wallet data.
-* **Obstacles / Blockers:**
-  * Persistence work depends on the final shape of the transaction structs, which were still being updated this week.
-* **Next Week Plan:**
-  * Implement binary file read/write for wallets and connect it to the transaction data.
-  * Test save/load round trips with several wallets.
+| Commit | Date and time | Author | Message |
+|---|---|---|---|
+| 0c2aaa3 | 2026-11-20 23:26 | DatJust | Fix |
+| 5623a00 | 2026-11-20 23:21 | DatJust | Merge branch 'main' of https://github.com/htghan-dotcom/CS160_Group7_PersonalFinanceManager |
+| 60dc6bc | 2026-11-20 23:12 | DatJust | Update and fix transaction and utils |
+| 3301247 | 2026-11-20 13:50 | hiepsimauhong | Merge pull request #4 from htghan-dotcom/feature/statistics |
+| fb640c2 | 2026-11-20 03:52 | hiepsimauhong | Add income statistics and improve date validation |
+| 06c3419 | 2026-11-16 16:26 | gkhanhhh-debug | Menu Structure |
+| 07bacb0 | 2026-11-16 15:04 | gkhanhhh-debug | Merge branch 'main' of https://github.com/htghan-dotcom/CS160_Group7_PersonalFinanceManager |
+| 26538c4 | 2026-11-14 08:39 | gkhanhhh-debug | Put the console utils function in Utils for later use |
+| 6ceaba5 | 2026-11-14 08:39 | gkhanhhh-debug | Put the console utils function in Utils for later use |
+| a504569 | 2026-11-13 22:58 | gkhanhhh-debug | Weekly Reports |
+| d78e1c4 | 2026-11-13 22:58 | gkhanhhh-debug | Weekly Reports |
+| c58b958 | 2026-11-13 21:39 | gkhanhhh-debug | Adding the dashboard |
+| 0fbd895 | 2026-11-13 21:39 | gkhanhhh-debug | Adding the dashboard |
+| 5f33354 | 2026-11-13 21:23 | gkhanhhh-debug | Adding All CRUD Features and ConsoleUtils |
+| d3a1475 | 2026-11-13 21:23 | gkhanhhh-debug | Adding All CRUD Features and ConsoleUtils |
+| 85fd4d1 | 2026-11-13 11:30 | htghan-dotcom | Merge pull request #2 from htghan-dotcom/IncomeSources |
+| e44782b | 2026-11-13 11:29 | htghan-dotcom | Merge branch 'main' into IncomeSources |
+| 4286571 | 2026-11-13 11:26 | htghan-dotcom | Merge pull request #3 from htghan-dotcom/feat/wallet |
+| 93fca85 | 2026-11-13 11:24 | htghan-dotcom | fix(wallet): update prototypes in header file to match with cpp file |
+| 9751d24 | 2026-11-13 11:18 | htghan-dotcom | doc(w6): update weekly progress |
+| c8bf836 | 2026-11-13 11:13 | htghan-dotcom | feat(wallet): implement Wallet CRUD logic |
+| 899d175 | 2026-11-13 02:57 | DatJust | UpdateTransaction |
+| 522d808 | 2026-11-12 14:26 | gkhanhhh-debug | Make some files adjustment due to pull falsely. |
+| 6431e31 | 2026-11-12 14:17 | gkhanhhh-debug | small bug |
+| 096bb1f | 2026-11-09 23:04 | htghan-dotcom | build: add CMakeLists.txt configuration |
+| a17d9ac | 2026-11-09 22:51 | htghan-dotcom | docs: add sample weekly reports |
+| 20c3575 | 2026-11-08 20:54 | gkhanhhh-debug | Fixes minor bugs |
+| 4567f5e | 2026-11-08 20:53 | gkhanhhh-debug | Refactor MasterDataManager: separate header and implementation files, add display functions, and update category handling |
+| 0adaa26 | 2026-11-08 19:55 | gkhanhhh-debug | Fixing Some Bugs |
+| b084d9a | 2026-11-08 19:44 | gkhanhhh-debug | add addExpenseCategory declaration in MasterDataManager.hpp |
+| 628df0f | 2026-11-06 23:16 | htghan-dotcom | Merge branch 'main' of https://github.com/htghan-dotcom/CS160_Group7_PersonalFinanceManager |
+| 206c3a3 | 2026-11-06 22:49 | htghan-dotcom | Merge pull request #1 from htghan-dotcom/IncomeSources |
+| 8800825 | 2026-11-06 22:38 | htghan-dotcom | Merge remote-tracking branch 'origin/IncomeSources' |
+| ca42c05 | 2026-11-06 18:17 | DatJust | UpdateUtils |
+| 70c0e26 | 2026-10-29 23:10 | gkhanhhh-debug | Adding the IncomeSources.hpp, ExpenseCategory.hpp, parts of the MasterDataManager.cpp and MasterDataManager.hpp |
+| 6a8be0b | 2026-10-13 14:27 | htghan-dotcom | init project's structure |
+| 2dbbd4b | 2026-10-13 14:17 | htghan-dotcom | Add some IDE folders to ignore |
+| 67a8f71 | 2026-10-13 14:08 | htghan-dotcom | Initial commit |
 
-### Nguyễn Gia Khánh (`gkhanhhh-debug`)
-* **Assigned Module:** Master Data & CLI Navigation Framework
-* **Tasks Planned for the Week:**
-  * Complete the CLI navigation loop and menu structure.
-  * Reorganize console helper functions for reuse.
-* **Work Completed / Progress:**
-  * Moved console utility functions into `Utils` for reuse across modules (`26538c4`).
-  * Implemented the menu structure of the CLI (`06c3419`).
-  * Synchronized local work with `main` (`07bacb0`).
-* **Obstacles / Blockers:**
-  * Merge conflicts and duplicated commits appeared when syncing with `main`, which cost some time to clean up.
-* **Next Week Plan:**
-  * Connect menu items to the Master Data, Wallet and Transaction functions.
-  * Polish the Dashboard screen and input validation in the CLI.
+## Individual commit logs
 
-### Nguyễn Bá Đạt (`DatJust`)
-* **Assigned Module:** Transaction Management & Shared Utilities
-* **Tasks Planned for the Week:**
-  * Integrate transaction structs with the Date utility.
-  * Fix issues in the transaction and utils modules.
-* **Work Completed / Progress:**
-  * Updated and fixed the transaction and utils modules (`60dc6bc`, `0c2aaa3`).
-  * Converted string handling to dynamically allocated `char` arrays to follow the project's no-STL-container rule.
-  * Synchronized local work with `main` (`5623a00`).
-* **Obstacles / Blockers:**
-  * Manual memory management for strings required careful allocation and cleanup to avoid leaks and double frees.
-* **Next Week Plan:**
-  * Implement `ExpenseTransaction` handling and balance update logic on transaction creation.
-  * Add foreign key validation against wallets, income sources and expense categories.
+Hashes refer to the dated entries above.
 
-### Nguyễn Đức Thành Đạt (`hiepsimauhong`)
-* **Assigned Module:** Recurring Automation & Financial Statistics
-* **Tasks Planned for the Week:**
-  * Deliver the first version of the statistics feature.
-* **Work Completed / Progress:**
-  * Completed the statistics feature branch and merged Pull Request #4 into `main` (`3301247`).
-* **Obstacles / Blockers:**
-  * Statistics calculations rely on transaction data that is still being finalized.
-* **Next Week Plan:**
-  * Implement `RecurringTransaction` data models and the monthly trigger cycle.
-  * Extend statistics to annual breakdowns and
+### Huỳnh Trần Gia Hân
+
+85fd4d1, e44782b, 4286571, 93fca85, 9751d24, c8bf836, 096bb1f, a17d9ac, 628df0f, 206c3a3, 8800825, 6a8be0b, 2dbbd4b, 67a8f71
+
+### Nguyễn Bá Đạt
+
+0c2aaa3, 5623a00, 60dc6bc, 899d175, ca42c05
+
+### Nguyễn Đức Thành Đạt
+
+3301247, fb640c2
+
+### Nguyễn Gia Khánh
+
+06c3419, 07bacb0, 26538c4, 6ceaba5, a504569, d78e1c4, c58b958, 0fbd895, 5f33354, d3a1475, 522d808, 6431e31, 20c3575, 4567f5e, 0adaa26, b084d9a, 70c0e26
