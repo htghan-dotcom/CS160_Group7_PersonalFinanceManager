@@ -2,8 +2,8 @@
 #include <vector>
 #include <string>
 #include <iostream>
-#include "models/ExpenseCategory.h"
-#include "models/IncomeSource.h"
+#include "../models/ExpenseCategory.h"
+#include "../models/IncomeSource.h"
 #include <iomanip>
 struct MasterDataManager{
     IncomeSource* incomeSources;

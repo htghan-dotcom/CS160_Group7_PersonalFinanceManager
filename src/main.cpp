@@ -1,4 +1,4 @@
-#include "ui/Menu.h"
+#include "../include/ui/Menu.h"
 
 int main() {
     MasterDataManager masterManager;
